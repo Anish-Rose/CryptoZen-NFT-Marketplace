@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" id="themes">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--roboto font  -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <!-- aos css -->
+    <!--  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+    <!--swiper css -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!--font awesome icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <!--bootstrap 5 css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" />
+    <!--main style css  -->
+    <link href="./style.css" rel="stylesheet">
+
+    <title>CryptoZen</title>
+</head>
+
+<body>
+    <!----------------------------------------------------PRELOADER---------------------------------------------------------------------------------->
+    <main class="preloader">
+        <svg class="ap" viewBox="0 0 128 256" width="128px" height="256px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="ap-grad1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="hsl(223,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(253,90%,55%)" />
+                </linearGradient>
+                <linearGradient id="ap-grad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="hsl(193,90%,55%)" />
+                    <stop offset="50%" stop-color="hsl(223,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(253,90%,55%)" />
+                </linearGradient>
+            </defs>
+            <circle class="ap__ring" r="56" cx="64" cy="192" fill="none" stroke="#ddd" stroke-width="16"
+                stroke-linecap="round" />
+            <circle class="ap__worm1" r="56" cx="64" cy="192" fill="none" stroke="url(#ap-grad1)" stroke-width="16"
+                stroke-linecap="round" stroke-dasharray="87.96 263.89" />
+            <path class="ap__worm2" d="M120,192A56,56,0,0,1,8,192C8,161.07,16,8,64,8S120,161.07,120,192Z" fill="none"
+                stroke="url(#ap-grad2)" stroke-width="16" stroke-linecap="round" stroke-dasharray="87.96 494" />
+        </svg>
+    </main>
+    <!-- preloader end -->
+
+
+    <!----------------------------------------------------THEME SETTINGS---------------------------------------------------------------------------------->
+    <div class="theme-settings "><i class="fa-solid fa-gear" id="settings" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></div>
+
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header ">
+            <h5 id="offcanvasRightLabel">Theme Customizer</h5>
+            <button type="button" class="btn-close text-reset flex bg-danger" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <hr>
+        <div class="offcanvas-body">
+            <div class="theme-buttons">
+                <div class="light-mode">
+                    <h4 class="">Light Mode</h4>
+                    <img src="./src/images-src/theme-modes/light-mode.png" alt="light" class="img-fluid mb-3"
+                        id="light">
+                </div>
+                <div class="dark-mode">
+                    <h4 class="t">Dark Mode</h4>
+                    <img src="./src/images-src/theme-modes/dark-mode.png" alt="light" class="img-fluid mb-3" id="dark">
+                </div>
+            </div>
+            <div class="theme-customizer">
+                <h4 class="">Theme Selector</h4>
+                <div class="theme-selector">
+                    <div class="theme-colors red" data-color="#ea2027"></div>
+                    <div class="theme-colors blue" data-color="#17c0eb"></div>
+                    <div class="theme-colors orange" data-color="#ffc312"></div>
+                    <div class="theme-colors green" data-color="#27ae60"></div>
+                    <div class="theme-colors purple" data-color="#8e44ad"></div>
+                </div>
+                <div class="font-size-selector">
+                    <h4 class="">Font Size Changer</h4>
+                    <div class="font-size-buttons">
+                        <button type="button" class="btn btn-sm btn-outline-secondary font-size-button"
+                            data-font-size="1rem">1rem</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary font-size-button"
+                            data-font-size="1.2rem">2rem</button>
+                        <button type="button" class="btn btn-lg btn-outline-secondary font-size-button"
+                            data-font-size="1.3rem">3rem</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary font-size-button"
+                            data-font-size="1.4rem">4rem</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary font-size-button"
+                            data-font-size="1.5rem">5rem</button>
+                    </div>
+                </div>
+                <div class="reset">
+                    <button type="button" class="btn btn-lg btn-danger font-size-button theme-colors "
+                        data-color="">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- theme end -->
+
+    <!----------------------------------------------------NAVIGATION BAR---------------------------------------------------------------------------------->
+    <div id="root">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container">
+                <a class="navbar-brand" href="#">CZ</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Explore</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Collections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pages
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Wallet</a></li>
+                                <li><a class="dropdown-item" href="#">Author</a></li>
+                                <li><a class="dropdown-item" href="#">Create Item</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#ModalForm">Login</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#ModalForm2">Register</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <div class="d-flex search-main ">
+                            <input class="form-control me-2 search bg-transparent" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <button class="signin" type="button" data-bs-toggle="modal"
+                            data-bs-target="#ModalForm">LogIn</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+        <!----------------------------------------------------Modal Section---------------------------------------------------------------------------------->
+        <!--  login -->
+        <!-- Modal Form -->
+        <div class="modal fade" id="ModalForm" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+                <div class="modal-content">
+                    <!-- Login Form -->
+                    <form action="">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Login To CryptoZen</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="Username">Username<span class="text-danger">*</span></label>
+                                <input type="text" name="username" class="form-control" id="Username"
+                                    placeholder="Enter Username">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Password">Password<span class="text-danger">*</span></label>
+                                <input type="password" name="password" class="form-control" id="Password"
+                                    placeholder="Enter Password">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-check-input" type="checkbox" value="" id="remember" required>
+                                <label class="form-check-label" for="remember">Remember Me</label>
+                                <a href="#" class="float-end">Forgot Password</a>
+                            </div>
+                        </div>
+                        <div class="modal-footer pt-4">
+                            <button type="button" class="btn btn-primary mx-auto w-100">Login</button>
+                        </div>
+                        <p class="text-center">Create an account <a href="#" id="signup">Signup</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--  login end -->
+        <!-- Register -->
+
+        <div class="modal fade" id="ModalForm2" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+                <div class="modal-content">
+                    <!-- Login Form -->
+                    <form action="">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Register To CryptoZen</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="Username">Username<span class="text-danger">*</span></label>
+                                <input type="text" name="username" class="form-control" id="Username"
+                                    placeholder="Enter Username">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Password">Password<span class="text-danger">*</span></label>
+                                <input type="password" name="password" class="form-control" id="Password"
+                                    placeholder="Enter Password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Password">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="password" name="password" class="form-control" id="Password"
+                                    placeholder="Enter Password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Email">Email<span class="text-danger">*</span></label>
+                                <input type="email" name="email" class="form-control" id="Email"
+                                    placeholder="Enter Email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Phone">Phone<span class="text-danger">*</span></label>
+                                <input type="text" name="phone" class="form-control" id="Phone"
+                                    placeholder="Enter Phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Address">Address<span class="text-danger">*</span></label>
+                                <input type="text" name="address" class="form-control" id="Address"
+                                    placeholder="Enter Address">
+                            </div>
+                        </div>
+                        <div class="modal-footer pt-4">
+                            <button type="button" class="btn btn-primary mx-auto w-100">Register</button>
+                        </div>
+                        <p class="text-center">Already have an account <a href="#" id="login">Login</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Register end -->
+
+
+
+        <!----------------------------------------------------GO TO TOP---------------------------------------------------------------------------------->
+        <div class="scroll show" onclick="topFunction()">
+            <i class="fa-solid fa-angles-up"></i>
+        </div>
+        <!----------------------------------------------------HERO SECTION---------------------------------------------------------------------------------->
+
+        <header class="header flex" data-aos="fade-up" data-aos-duration="1000">
+            <!--  -->
+            <!--  -->
+            <div class="container">
+                <div class="row flex ">
+                    <div class="col-lg-6">
+                        <div class="header-content">
+                            <h1 class="gradients">Discover Digital Art And Sell Your Specific NFT</h1>
+                            <p>Partner with one of the world’s largest retailers to showcase your brand
+                                and
+                                products.
+                            </p>
+                            <div class="header-btn">
+                                <button class="button">Expore More</button>
+                                <button class="button-outline">Create New</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header-img flex">
+                            <img src="./src/images-src/hero-section/hero.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </header>
+
+    <!----------------------------------------------------LIVE AUCTION CARDS---------------------------------------------------------------------------------->
+
+
+    <!-- Bid -->
+    <div class="bid-form">
+        <div class="modal fade" id="ModalFormbid" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+                <div class="modal-content">
+                    <!-- Login Form -->
+                    <form action="">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Place a Bid</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="Username">Enter Quantity<span class="text-danger">*</span></label>
+                                <input type="text" name="username" class="input" id="Username"
+                                    placeholder="Enter Bid Amount"><br>
+
+                                <label for="Username">Place a bid<span class="text-danger">*</span></label>
+                                <input type="text" name="username" class="input" id="Username"
+                                    placeholder="Enter Bid Amount">
+                            </div>
+                        </div>
+                        <div class="modal-footer pt-4">
+                            <button type="button" class="btn btn-primary mx-auto w-100" data-bs-dismiss="modal">Place a
+                                Bid</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bid End -->
+
+    <header class="live-section" data-aos="fade-up">
+        <div class="container">
+            <div class="live-content">
+                <div class="live-img"></div>
+                <h1 class="live-heading">Live Auctions</h1>
+
+            </div>
+            <div class="swiper mySwiper ">
+                <div class="swiper-wrapper ">
+                    <div class="swiper-slide ">
+
+                        <div class="card tab-content p-4 border-0 ">
+                            <div class=" d-flex align-items-center justify-content-start">
+                                <div class="avatar-xs">
+                                    <img src="./src/images-src/seller/seller-01.png" alt=""
+                                        class="img-fluid rounded-circle">
+                                </div>
+                                <h6 class="mb-0 ms-2 fw-semibold f-14">@Deniva_Pannini</h6>
+                                <i class="fa-solid fa-heart ms-auto"></i>
+                            </div>
+                            <div class="card-image  mt-3">
+                                <img src="./src/images-src/live-section/nft-1.jpg" alt="" class="img-fluid nft-image">
+                                <div class="middle">
+                                    <span class="badge" id="nft-time">4hrs 2min
+                                        5sec</span>
+                                </div>
+                            </div>
+                            <div class="body-content mt-3 ">
+                                <div class="d-flex">
+                                    <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                    <p class="ms-auto ">Current Price</p>
+                                </div>
+                                <div class="d-flex">
+                                    <p class="text-danger">6 in stock</p>
+                                    <p class="ms-auto text-success">1.53ETH</span></p>
+                                </div>
+                                <hr>
+                                <div class="d-flex mt-3 align-items-center">
+                                    <div class="history">
+                                        <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                            History</a>
+                                    </div>
+                                    <div class="bid-button ms-auto ">
+                                        <button class="btn  btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#ModalFormbid">Place Bid</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- card -->
+
+                    </div>
+                    <!-- slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="card tab-content p-4 border-0">
+                            <div class=" d-flex align-items-center justify-content-start">
+                                <div class="avatar-xs">
+                                    <img src="./src/images-src/seller/seller-02.png" alt=""
+                                        class="img-fluid rounded-circle">
+                                </div>
+                                <h6 class="mb-0 ms-2 fw-semibold f-14">@crispin_drax</h6>
+                                <i class="fa-solid fa-heart ms-auto"></i>
+                            </div>
+                            <div class="card-image  mt-3">
+                                <img src="./src/images-src/live-section/nft-2.jpg" alt="" class="img-fluid">
+                                <div class="middle">
+                                    <span class="badge" id="nft-time">4hrs 2min
+                                        5sec</span>
+                                </div>
+                            </div>
+                            <div class="body-content mt-3 ">
+                                <div class="d-flex">
+                                    <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                    <p class="ms-auto ">Current Price</p>
+                                </div>
+                                <div class="d-flex">
+                                    <p class="text-danger">6 in stock</p>
+                                    <p class="ms-auto text-success">1.53ETH</span></p>
+                                </div>
+                                <hr>
+                                <div class="d-flex mt-3 align-items-center">
+                                    <div class="history">
+                                        <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                            History</a>
+                                    </div>
+                                    <div class="bid-button ms-auto ">
+                                        <button class="btn  btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#ModalFormbid">Place Bid</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- card -->
+                    </div>
+                    <!-- slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="card tab-content p-4 border-0">
+                            <div class=" d-flex align-items-center justify-content-start">
+                                <div class="avatar-xs">
+                                    <img src="./src/images-src/seller/seller-03.png" alt=""
+                                        class="img-fluid rounded-circle">
+                                </div>
+                                <h6 class="mb-0 ms-2 fw-semibold f-14">@levin_Parker</h6>
+                                <i class="fa-solid fa-heart ms-auto"></i>
+                            </div>
+                            <div class="card-image  mt-3">
+                                <img src="./src/images-src/live-section/nft-3.jpg" alt="" class="img-fluid">
+                                <div class="middle">
+                                    <span class="badge" id="nft-time">4hrs 2min
+                                        5sec</span>
+                                </div>
+                            </div>
+                            <div class="body-content mt-3 ">
+                                <div class="d-flex">
+                                    <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                    <p class="ms-auto ">Current Price</p>
+                                </div>
+                                <div class="d-flex">
+                                    <p class="text-danger">6 in stock</p>
+                                    <p class="ms-auto text-success">1.53ETH</span></p>
+                                </div>
+                                <hr>
+                                <div class="d-flex mt-3 align-items-center">
+                                    <div class="history">
+                                        <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                            History</a>
+                                    </div>
+                                    <div class="bid-button ms-auto ">
+                                        <button class="btn  btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#ModalFormbid">Place Bid</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- card -->
+                    </div>
+                    <!-- slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="card tab-content p-4 border-0">
+                            <div class=" d-flex align-items-center justify-content-start">
+                                <div class="avatar-xs">
+                                    <img src="./src/images-src/seller/seller-04.png" alt=""
+                                        class="img-fluid rounded-circle">
+                                </div>
+                                <h6 class="mb-0 ms-2 fw-semibold f-14">@mark_luther</h6>
+                                <i class="fa-solid fa-heart ms-auto"></i>
+                            </div>
+                            <div class="card-image  mt-3">
+                                <img src="./src/images-src/live-section/nft-4.jpg" alt="" class="img-fluid">
+                                <div class="middle">
+                                    <span class="badge" id="nft-time">4hrs 2min
+                                        5sec</span>
+                                </div>
+                            </div>
+                            <div class="body-content mt-3 ">
+                                <div class="d-flex">
+                                    <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                    <p class="ms-auto ">Current Price</p>
+                                </div>
+                                <div class="d-flex">
+                                    <p class="text-danger">6 in stock</p>
+                                    <p class="ms-auto text-success">1.53ETH</span></p>
+                                </div>
+                                <hr>
+                                <div class="d-flex mt-3 align-items-center">
+                                    <div class="history">
+                                        <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                            History</a>
+                                    </div>
+                                    <div class="bid-button ms-auto ">
+                                        <button class="btn  btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#ModalFormbid">Place Bid</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- card -->
+                    </div>
+                    <!-- slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="card tab-content p-4 border-0">
+                            <div class=" d-flex align-items-center justify-content-start">
+                                <div class="avatar-xs">
+                                    <img src="./src/images-src/seller/seller-05.png" alt=""
+                                        class="img-fluid rounded-circle">
+                                </div>
+                                <h6 class="mb-0 ms-2 fw-semibold f-14">@Francis-mark</h6>
+                                <i class="fa-solid fa-heart ms-auto"></i>
+                            </div>
+                            <div class="card-image  mt-3">
+                                <img src="./src/images-src/live-section/nft-5.jpg" alt="" class="img-fluid">
+                                <div class="middle">
+                                    <span class="badge" id="nft-time">4hrs 2min
+                                        5sec</span>
+                                </div>
+                            </div>
+                            <div class="body-content mt-3 ">
+                                <div class="d-flex">
+                                    <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                    <p class="ms-auto ">Current Price</p>
+                                </div>
+                                <div class="d-flex">
+                                    <p class="text-danger">6 in stock</p>
+                                    <p class="ms-auto text-success">1.53ETH</span></p>
+                                </div>
+                                <hr>
+                                <div class="d-flex mt-3 align-items-center">
+                                    <div class="history">
+                                        <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                            History</a>
+                                    </div>
+                                    <div class="bid-button ms-auto ">
+                                        <button class="btn  btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#ModalFormbid">Place Bid</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- card -->
+                    </div><!-- slider 4 -->
+                    <div class="swiper-slide">
+                        <div class="card tab-content p-4 border-0">
+                            <div class=" d-flex align-items-center justify-content-start">
+                                <div class="avatar-xs">
+                                    <img src="./src/images-src/seller/seller-06.png" alt=""
+                                        class="img-fluid rounded-circle">
+                                </div>
+                                <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                                <i class="fa-solid fa-heart ms-auto"></i>
+                            </div>
+                            <div class="card-image  mt-3">
+                                <img src="./src/images-src/live-section/nft-6.jpg" alt="" class="img-fluid">
+                                <div class="middle">
+                                    <span class="badge" id="nft-time">4hrs 2min
+                                        5sec</span>
+                                </div>
+                            </div>
+                            <div class="body-content mt-3 ">
+                                <div class="d-flex">
+                                    <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                    <p class="ms-auto ">Current Price</p>
+                                </div>
+                                <div class="d-flex">
+                                    <p class="text-danger">6 in stock</p>
+                                    <p class="ms-auto text-success">1.53ETH</span></p>
+                                </div>
+                                <hr>
+                                <div class="d-flex mt-3 align-items-center">
+                                    <div class="history">
+                                        <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                            History</a>
+                                    </div>
+                                    <div class="bid-button ms-auto ">
+                                        <button class="btn  btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#ModalFormbid">Place Bid</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- card -->
+                    </div>
+                    <!-- slide 2 -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </header>
+
+
+    <!----------------------------------------------------EDITOR'S PICK---------------------------------------------------------------------------------->
+
+    <!-- Swiper -->
+    <header class="editor-pick" data-aos="fade-up">
+        <div class="container">
+            <div class="editorpick-content">
+                <h1>Today's Picks </h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-08.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-1.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!--  -->
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-07.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-2.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!--  -->
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-06.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-3.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!-- 2nd row -->
+
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-05.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-4.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!--  -->
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-04.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-5.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!--  -->
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-03.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-6.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!-- 3d row -->
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-03.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-7.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!--  -->
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-05.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-8.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <!--  -->
+                <div class="col-lg-4 col-md-6 nft-box">
+                    <div class="card tab-content p-4 border-0">
+                        <div class=" d-flex align-items-center justify-content-start">
+                            <div class="avatar-xs">
+                                <img src="./src/images-src/seller/seller-07.png" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <h6 class="mb-0 ms-2 fw-semibold f-14">@leema-angel</h6>
+                            <i class="fa-solid fa-heart ms-auto"></i>
+                        </div>
+                        <div class="card-image  mt-3">
+                            <img src="./src/images-src/todays-pick/nft-9.jpg" alt="" class="img-fluid">
+                            <div class="middle">
+                                <button class="btn btn-outline btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#ModalFormbid">Place a Bid</button>
+                            </div>
+                        </div>
+                        <div class="body-content mt-3 ">
+                            <div class="d-flex">
+                                <h6 class="fw-bold">#Triumphant Awakening</h6>
+                                <p class="ms-auto ">Current Price</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-danger">6 in stock</p>
+                                <p class="ms-auto text-success">1.53ETH</span></p>
+                            </div>
+                            <hr>
+                            <div class="d-flex mt-3 align-items-center">
+                                <div class="history">
+                                    <a href="#"> <i class="mdi mdi-restart f-20 align-middle"></i>View
+                                        History</a>
+                                </div>
+                                <div class="bid-button ms-auto ">
+                                    <button class="btn  btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- card -->
+                <div class="load-more flex">
+                    <button class=" btn btn-outline-primary" id="loadMoreBtn">Load More</button>
+                </div>
+            </div>
+    </header>
+
+
+    <!----------------------------------------------------TOP SELLERS---------------------------------------------------------------------------------->
+    <section class="table">
+        <div class="container">
+            <div class="table-main-content">
+                <h1>Best Sellers</h1>
+                <p>The world's first and largest digital marketplace for crypto collectibles and
+                    non-fungible tokens
+                    (NFTs).</p>
+            </div>
+            <div class="swiper myTableSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-1.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @pranav-singh<br>
+                                <p class="text-success bid">615.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-2.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @arthur-max<br>
+                                <p class="text-success bid">1915.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-3.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @carter-blaze<br>
+                                <p class="text-success bid">815.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-4.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @john-max<br>
+                                <p class="text-success bid">462.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-5.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @ninja-art<br>
+                                <p class="text-success bid">399.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-6.jpg" alt="" class="img-fluid ">
+                        <div class=" seller-content">
+                            <h1 class="">
+                                @anthony<br>
+                                <p class="text-success bid">2015.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-7.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @luther<br>
+                                <p class="text-success bid">1706.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-8.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @mark-sweeper<br>
+                                <p class="text-success bid">1515.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="swiper-slide">
+                        <img src="./src/images-src/best-sellers/avatar-9.jpg" alt="" class="img-fluid ">
+                        <div class="seller-content">
+                            <h1 class="">
+                                @leema-angel<br>
+                                <p class="text-success bid">915.1 ETH</p>
+                                <button class="btn btn-primary">Follow</button>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- end -->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+    </section>
+
+    <!----------------------------------------------------POPULAR COLLECTION--------------------------------------------------------------------------->
+    <section class="popular-collection">
+        <div class="container">
+            <h1 class="popular-collection-heading">Popular Collection</h1>
+            <div class="row">
+                <div class="col-12 col-md-10 col-lg-4">
+                    <div class="catagory-card card shadow-sm">
+                        <div class="card-body">
+                            <div class="row g-1">
+                                <div class="col-6">
+                                    <img class="rounded" src="./src/images-src/popular-collection/collection1-1.jpg"
+                                        alt="">
+                                    <img class="rounded" alt=""
+                                        src="./src/images-src/popular-collection/collection1-2.jpg">
+                                </div>
+                                <div class="col-6">
+                                    <img class="rounded" alt=""
+                                        src="./src/images-src/popular-collection/collection1-3.jpg">
+                                    <img class="rounded" src="./src/images-src/popular-collection/collection1-4.jpg"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-8">
+                                    <h5 class="mb-0">Modern Art Collection</h5>
+                                </div>
+                                <div class="col-4 ms-auto"><a class="btn-minimal " href="#">View all<i
+                                            class="ms-1 fz-14 bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ASDZFJDOPFJVCADJ -->
+                <div class="col-12 col-md-10 col-lg-4">
+                    <div class="catagory-card card shadow-sm">
+                        <div class="card-body">
+                            <div class="row g-1">
+                                <div class="col-6">
+                                    <img class="rounded" src="./src/images-src/popular-collection/collection2-1.jpg"
+                                        alt="">
+                                    <img class="rounded" alt=""
+                                        src="./src/images-src/popular-collection/collection2-2.jpg">
+                                </div>
+                                <div class="col-6">
+                                    <img class="rounded" alt=""
+                                        src="./src/images-src/popular-collection/collection2-3.jpg">
+                                    <img class="rounded" src="./src/images-src/popular-collection/collection2-4.jpg"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-8">
+                                    <h5 class="mb-0">Abstract Art Work</h5>
+                                </div>
+                                <div class="col-4 ms-auto"><a class="btn-minimal " href="#">View all<i
+                                            class="ms-1 fz-14 bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DUPSLDSLSLODSLOPD -->
+                <div class="col-12 col-md-10 col-lg-4">
+                    <div class="catagory-card card shadow-sm">
+                        <div class="card-body">
+                            <div class="row g-1">
+                                <div class="col-6">
+                                    <img class="rounded" src="./src/images-src/popular-collection/collection3-1.jpg"
+                                        alt="">
+                                    <img class="rounded" alt=""
+                                        src="./src/images-src/popular-collection/collection3-2.jpg">
+                                </div>
+                                <div class="col-6">
+                                    <img class="rounded" alt=""
+                                        src="./src/images-src/popular-collection/collection3-3.jpg">
+                                    <img class="rounded" src="./src/images-src/popular-collection/collection3-4.jpg"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-8">
+                                    <h5 class="mb-0">Creative Art Collection</h5>
+                                </div>
+                                <div class="col-4 ms-auto"><a class="  btn-minimal " href="#">View all<i
+                                            class="ms-1 fz-14 bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!----------------------------------------------------CONNECT YOUR WALLET--------------------------------------------------------------------------------->
+
+    <div class="connect-wallet">
+        <div class="container">
+            <h1 class="wallet-heading">Connect Your Wallet</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="wallet-box text-center">
+                        <img src="./src/images-src/connect-wallet/metamask.png">
+                        <div class="wallet-title">
+                            <h4>Meta Mask</h4>
+                            <p>
+                                MetaMask is a browser extension that allows you to interact with the
+                                Ethereum
+                                blockchain.
+                            </p>
+                            <a href="#" class="btn btn-outline-dark">Connect</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="wallet-box text-center">
+                        <img src="./src/images-src/connect-wallet/coinbase.png">
+                        <div class="wallet-title">
+                            <h4>Coinbase Wallet</h4>
+                            <p>Coinbase Wallet is a self-custody wallet, giving you complete control of your
+                                crypto.
+                            </p>
+                            <a href="#" class="btn btn-outline-dark">Connect</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="wallet-box text-center">
+                        <img src="./src/images-src/connect-wallet/torus.png">
+                        <div class="wallet-title">
+                            <h4>Torus</h4>
+                            <p>
+                                Torus is a cryptocurrency that enables users to create and manage their own
+                                virtual
+                                currencies.
+                            </p>
+                            <a href="#" class="btn btn-outline-dark">Connect</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="wallet-box text-center">
+                        <img src="./src/images-src/connect-wallet/bitski.png">
+                        <div class="wallet-title">
+                            <h4>Bitski</h4>
+                            <p>Bitski wallet is kept safe in our enterprise-grade Hardware Security Modules
+                                (HSMs).
+                            </p>
+                            <a href="#" class="btn btn-outline-dark">Connect</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="wallet-box text-center">
+                        <img src="./src/images-src/connect-wallet/autherum.png">
+                        <div class="wallet-title">
+                            <h4>Autherum</h4>
+                            <p>Autherum you can access your assets. Allowing
+                                you and only you to access your funds.
+                            </p>
+                            <a href="#" class="btn btn-outline-dark">Connect</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="wallet-box text-center">
+                        <img src="./src/images-src/connect-wallet/formatic.png">
+                        <div class="wallet-title">
+                            <h4>Formatic</h4>
+                            <p>Formatic is a wallet kept safe in our enterprise-grade Hardware Security
+                                Modules
+                                rebranded to Magic
+                            </p>
+                            <a href="#" class="btn btn-outline-dark">Connect</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------------------------------Footer-------------------------------------------------------------------------------->
+    <section class="app-download">
+        <div class="container flex">
+            <div class="app_wrapper ">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="cta_content">
+                            <h3>Download Our App for NFT Enthusiasts</h3>
+                            <p>If you're an NFT enthusiast, or are looking to get more familiar with NFTs,
+                                consider
+                                downloading our NFT App!</p>
+                            <button type="button" class="btn btn-outline-light text-dark btn-lg"><i
+                                    class="fa-brands fa-google-play"></i>
+                                Download</button>
+                            <button type="button" class="btn btn-dark text-white btn-lg btn-2"><i
+                                    class="fa-brands fa-apple"></i>
+                                Download</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="app_img">
+                            <img src="./src/images-src/download-our-app/nft-app.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start  text-muted">
+        <!-- Section: Links  -->
+        <section class="footer-section">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4 networks">
+                            Get connected with us on social networks
+                        </h6>
+                        <div class="footer-icons">
+                            <a href="" class=" me-4 text-reset">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="" class="me-4 text-reset">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="" class="me-4 text-reset">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="" class="me-4 text-reset">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Explore
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">
+                                Featured Drops</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Collections</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Top Seller</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Top Buyer</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Item Details</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Company
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">About us</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">How it works</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Forum</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Licence</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Carrer</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Contact
+                        </h6>
+                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            crytozen@gmail.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © <span id="copyrightYear"></span> Copyright:
+            <a class="text-reset fw-bold" href="#">CryptoZen.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    </div>
+    <!-- Footer End -->
+
+
+
+
+    <!-- --------------------------------------------Scripts----------------------------------------------------------- -->
+
+    <!-- aos js -->
+    <!--     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-in-cubic',
+            delay: 100,
+            offset: 300
+        });</script> -->
+    <!--swiper js  -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!--jquery  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--bootstrap  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <!--main js-->
+    <script src="./script.js"></script>
+</body>
+
+</html>
