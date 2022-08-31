@@ -321,7 +321,7 @@ hr {
 }
 
 .form-control {
-  border-radius: 100px;
+  border-radius: 0.4375rem;
 }
 
 .search {
@@ -349,7 +349,7 @@ hr {
   color: white;
   width: 170px;
   height: 50px;
-  border-radius: 100px;
+  border-radius: 0.4375rem;
   border: 0;
 }
 
@@ -396,7 +396,7 @@ hr {
   color: white;
   width: 150px;
   height: 50px;
-  border-radius: 100px;
+  border-radius: 0.4375rem;
   border: 0;
 }
 
@@ -405,7 +405,7 @@ hr {
   color: var(--primary-color);
   width: 150px;
   height: 50px;
-  border-radius: 100px;
+  border-radius: 0.4375rem;
   border: 1px solid var(--button-color);
   margin: 0 5rem;
 }
@@ -418,10 +418,10 @@ hr {
 
 @media screen and (max-width: 1200px) {
   .header-content h1 {
-    font-size: 2.5rem;
+    font-size: calc(1.8rem + 1.5vw);
   }
   .header-content p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .button {
@@ -457,6 +457,7 @@ hr {
   }
   .header-btn button {
     margin: 1rem;
+    width: 100%;
   }
 }
 
@@ -471,7 +472,7 @@ hr {
     margin: 0 auto;
   }
   .header-btn button {
-    margin: 0rem;
+    margin: 1rem 0 0 0;
   }
 }
 
@@ -659,7 +660,7 @@ hr {
   color: white;
   width: 100%;
   height: 100%;
-  border-radius: 100px;
+  border-radius: 0.4375rem;
   border: 0;
 }
 /* Swiper */
